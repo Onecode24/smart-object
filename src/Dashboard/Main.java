@@ -17,7 +17,7 @@ public class Main extends JFrame {
        setVisible(true);
 
        mainPanel.setSize(650,600);
-       mainPanel.add(setRadiatorBoard());
+       mainPanel.add(new RadiatorBoard());
 
        add(sideMenuBar(), BorderLayout.WEST);
        add(mainPanel, BorderLayout.CENTER);
@@ -29,14 +29,14 @@ public class Main extends JFrame {
 
        radiatorButton.addActionListener(e -> {
           mainPanel.remove(0);
-           mainPanel.add(setRadiatorBoard());
+           mainPanel.add(new RadiatorBoard());
            mainPanel.revalidate();
        });
 
        dryerButton.addActionListener(e -> {
            System.out.println("Dryer cheveux");
            mainPanel.remove(0);
-           mainPanel.add(setDryerBoard());
+           mainPanel.add(new DryerBoard());
            mainPanel.revalidate();
        });
 
@@ -51,57 +51,6 @@ public class Main extends JFrame {
        return containerMenu;
    }
 
-   public JPanel setRadiatorBoard(){
-       JPanel radiatorBoard = new JPanel();
-       radiatorBoard.setLayout(new BorderLayout());
-       radiatorBoard.setSize(new Dimension(650,600));
-
-
-       JPanel menuBar = new JPanel();
-       JButton settingButton = new JButton("Réglage");
-       JButton planningButton = new JButton("Planification");
-       settingButton.setPreferredSize(new Dimension(radiatorBoard.getWidth()/2,20));
-       planningButton.setPreferredSize(new Dimension(radiatorBoard.getWidth()/2,20));
-       //menuBar.setBackground(Color.WHITE);
-
-       settingButton.addActionListener(e -> {
-           System.out.println("Setting button clicked");
-          radiatorContainer.remove(0);
-          radiatorContainer.add(new SettingRadiator());
-          radiatorContainer.revalidate();
-       });
-
-       planningButton.addActionListener(e -> {
-           System.out.println("Planning button clicked");
-           radiatorContainer.remove(0);
-           radiatorContainer.add(new PlanningRadiator());
-           radiatorContainer.revalidate();
-       });
-
-       menuBar.add(settingButton);
-       menuBar.add(planningButton);
-
-
-
-
-
-       radiatorContainer.setLayout(new FlowLayout());
-       radiatorContainer.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-       radiatorContainer.setBackground(Color.WHITE);
-       radiatorContainer.setPreferredSize(new Dimension(650,580));
-       radiatorContainer.add(new SettingRadiator());
-       radiatorBoard.add(menuBar, BorderLayout.NORTH);
-       radiatorBoard.add(radiatorContainer, BorderLayout.CENTER);
-
-       return radiatorBoard;
-   }
-    public JPanel setDryerBoard(){
-        JPanel dryerBoard = new JPanel();
-        dryerBoard.setBackground(Color.WHITE);
-        dryerBoard.setPreferredSize(getMaximumSize());
-        dryerBoard.add(new JLabel("Seche cheveux"));
-        return dryerBoard;
-    }
 
 }
 
