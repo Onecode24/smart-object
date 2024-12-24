@@ -5,12 +5,11 @@ import java.awt.*;
 
 public class RadiatorBoard extends JPanel {
 
-    Container radiatorContainer = new JPanel();
+    JPanel radiatorContainer = new JPanel();
 
     public RadiatorBoard() {
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(650,600));
-
 
         JPanel menuBar = new JPanel();
         JButton settingButton = new JButton("Réglage");
@@ -39,7 +38,7 @@ public class RadiatorBoard extends JPanel {
 
         radiatorContainer.setLayout(new FlowLayout());
         radiatorContainer.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        radiatorContainer.setBackground(Color.WHITE);
+        //radiatorContainer.setBackground(Color.WHITE);
         radiatorContainer.setPreferredSize(new Dimension(650,580));
         radiatorContainer.add(new SettingRadiator());
         this.add(menuBar, BorderLayout.NORTH);
