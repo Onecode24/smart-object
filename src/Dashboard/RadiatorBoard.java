@@ -14,19 +14,19 @@ public class RadiatorBoard extends JPanel {
         JPanel menuBar = new JPanel();
         JButton settingButton = new JButton("Réglage");
         JButton planningButton = new JButton("Planification");
-        settingButton.setPreferredSize(new Dimension(this.getWidth()/2,20));
-        planningButton.setPreferredSize(new Dimension(this.getWidth()/2,20));
+        settingButton.setPreferredSize(new Dimension(this.getWidth()/2-5,20));
+        planningButton.setPreferredSize(new Dimension(this.getWidth()/2-5,20));
         //menuBar.setBackground(Color.WHITE);
 
         settingButton.addActionListener(e -> {
-            System.out.println("Setting button clicked");
+            //System.out.println("Setting button clicked");
             radiatorContainer.remove(0);
             radiatorContainer.add(new SettingRadiator());
             radiatorContainer.revalidate();
         });
 
         planningButton.addActionListener(e -> {
-            System.out.println("Planning button clicked");
+            //System.out.println("Planning button clicked");
             radiatorContainer.remove(0);
             radiatorContainer.add(new PlanningRadiator());
             radiatorContainer.revalidate();

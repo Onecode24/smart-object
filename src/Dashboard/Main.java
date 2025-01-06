@@ -25,7 +25,7 @@ public class Main extends JFrame {
 
    public JPanel sideMenuBar(){
        JButton radiatorButton = new JButton("Radiateur");
-       JButton dryerButton = new JButton("Sèche cheveux");
+       JButton dryerButton = new JButton("Sèche Serviettes");
 
        radiatorButton.addActionListener(e -> {
           mainPanel.remove(0);
